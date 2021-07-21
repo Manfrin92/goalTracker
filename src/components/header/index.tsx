@@ -6,7 +6,7 @@ import { Container, HeaderText } from './styles';
 const Header: React.FC = () => {
     return (
         <Container>
-            <HeaderText>Header</HeaderText>
+            <HeaderText>Goals and Tracker</HeaderText>
         </Container>
     );
 };

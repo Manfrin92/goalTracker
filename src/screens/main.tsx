@@ -1,5 +1,8 @@
 import React from 'react';
 import { Text, SafeAreaView } from 'react-native';
+import AddGoal from '../components/addGoal';
+import EditGoal from '../components/editGoal';
+import Goal from '../components/goal';
 import Header from '../components/header';
 
 const Main: React.FC = () => {
@@ -13,7 +16,9 @@ const Main: React.FC = () => {
             }}
         >
             <Header />
-            <Text>Olarr</Text>
+            <Goal />
+            <EditGoal />
+            <AddGoal />
         </SafeAreaView>
     );
 };
