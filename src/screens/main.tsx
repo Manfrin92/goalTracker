@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { Text, SafeAreaView, View } from 'react-native';
 import AddGoal from '../components/addGoal';
 import EditGoal from '../components/editGoal';
 import Goal from '../components/goal';
 import Header from '../components/header';
+import { BottomContainer, GoalContainer } from './styles';
 
 const Main: React.FC = () => {
     return (
@@ -11,14 +12,17 @@ const Main: React.FC = () => {
             style={{
                 flex: 1,
                 alignItems: 'center',
-                backgroundColor: 'yellow',
                 marginTop: '7%',
             }}
         >
             <Header />
-            <Goal />
-            <EditGoal />
-            <AddGoal />
+            <GoalContainer>
+                <Goal />
+            </GoalContainer>
+            <BottomContainer>
+                <EditGoal />
+                <AddGoal />
+            </BottomContainer>
         </SafeAreaView>
     );
 };
