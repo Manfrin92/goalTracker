@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, SafeAreaView, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import AddGoal from '../components/addGoal';
 import EditGoal from '../components/editGoal';
 import Goal from '../components/goal';

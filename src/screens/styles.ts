@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const GoalContainer = styled.View`
     flex: 1;
-    background-color: green;
     width: 100%;
     justify-content: center;
     align-items: center;
