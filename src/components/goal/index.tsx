@@ -17,12 +17,22 @@ const Goal: React.FC = () => {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <Text>May </Text>
+                    <Text style={{ marginLeft: 32 }}>May </Text>
                     <Text>Jun </Text>
-                    <Text>Jul</Text>
+                    <Text style={{ marginRight: 32 }}>Jul</Text>
                 </View>
-                <View>
-                    <GoalDay />
+                <View
+                    style={{
+                        borderColor: 'black',
+                        borderWidth: 2,
+                        padding: 4,
+                        height: '85%',
+                        backgroundColor: 'blue',
+                    }}
+                >
+                    {monthDays.map(() => (
+                        <GoalDay done={true} />
+                    ))}
                 </View>
             </View>
         </Container>

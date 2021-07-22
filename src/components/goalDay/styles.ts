@@ -1,7 +1,18 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
-export const Day = styled.TouchableOpacity`
+interface DayProps {
+    done: boolean;
+}
+
+export const Day = styled.TouchableOpacity<DayProps>`
     width: 15px;
     height: 15px;
-    background-color: #0a2010;
+    background-color: #fff;
+    margin: 2px;
+
+    ${(props) =>
+        props.done &&
+        css`
+            background: #0a2010;
+        `}
 `;
