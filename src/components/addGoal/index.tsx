@@ -6,7 +6,7 @@ import { Container } from './styles';
 const AddGoal: React.FC = () => {
     return (
         <Container>
-            <Ionicons name='add' size={32} color='#1366D6' />
+            <Ionicons name='add' size={42} color='white' />
         </Container>
     );
 };

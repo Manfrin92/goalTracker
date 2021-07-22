@@ -11,5 +11,5 @@ export const BottomContainer = styled.View`
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
-    margin-bottom: 8;
+    margin-bottom: 8px;
 `;
