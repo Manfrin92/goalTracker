@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
 export const GoalContainer = styled.View`
-    flex: 1;
-    width: 100%;
+    /* width: 100%; */
+    /* height: 45%; */
     justify-content: center;
     align-items: center;
 `;

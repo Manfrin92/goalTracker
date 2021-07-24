@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import GoalDay from '../goalDay';
 
 import { Container } from './styles';
 
 const Goal: React.FC = () => {
-    const monthDays = new Array(30).fill(null);
+    const monthDays = new Array(93).fill(null);
 
     return (
         <Container>
@@ -21,19 +22,31 @@ const Goal: React.FC = () => {
                     <Text>Jun </Text>
                     <Text style={{ marginRight: 32 }}>Jul</Text>
                 </View>
-                <View
+                <ScrollView
+                    horizontal={true}
                     style={{
                         borderColor: 'black',
                         borderWidth: 2,
                         padding: 4,
-                        height: '85%',
-                        backgroundColor: 'blue',
+                        maxHeight: '70%',
+                        height: '30%',
                     }}
                 >
-                    {monthDays.map(() => (
-                        <GoalDay done={true} />
-                    ))}
-                </View>
+                    <View
+                        style={{
+                            flexWrap: 'wrap',
+                            paddingRight: 24,
+                        }}
+                    >
+                        {monthDays.map(() => (
+                            <>
+                                <GoalDay done={true} />
+                                <GoalDay done={true} />
+                                <GoalDay done={true} />
+                            </>
+                        ))}
+                    </View>
+                </ScrollView>
             </View>
         </Container>
     );
