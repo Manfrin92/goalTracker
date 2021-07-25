@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-    background-color: yellow;
+    margin: 0 4% 0 4%;
+    height: 40%;
 `;

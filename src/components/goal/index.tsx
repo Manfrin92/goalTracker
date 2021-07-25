@@ -6,11 +6,11 @@ import GoalDay from '../goalDay';
 import { Container } from './styles';
 
 const Goal: React.FC = () => {
-    const monthDays = new Array(93).fill(null);
+    const monthDays = new Array(293).fill(null);
 
     return (
         <Container>
-            <Text>Goal Title</Text>
+            <Text style={{ marginLeft: '4%' }}>Goal Title</Text>
             <View>
                 <View
                     style={{
@@ -28,8 +28,8 @@ const Goal: React.FC = () => {
                         borderColor: 'black',
                         borderWidth: 2,
                         padding: 4,
-                        maxHeight: '70%',
-                        height: '30%',
+                        maxHeight: '85%',
+                        // height: '30%',
                     }}
                 >
                     <View
@@ -38,11 +38,12 @@ const Goal: React.FC = () => {
                             paddingRight: 24,
                         }}
                     >
-                        {monthDays.map(() => (
+                        {monthDays.map((month, index) => (
                             <>
-                                <GoalDay done={true} />
-                                <GoalDay done={true} />
-                                <GoalDay done={true} />
+                                <GoalDay
+                                    key={Math.random()}
+                                    done={index % 2 !== 0 && true}
+                                />
                             </>
                         ))}
                     </View>

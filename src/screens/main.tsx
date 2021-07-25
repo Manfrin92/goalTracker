@@ -16,9 +16,9 @@ const Main: React.FC = () => {
             }}
         >
             <Header />
-            <GoalContainer>
-                <Goal />
-            </GoalContainer>
+            {/* <GoalContainer> */}
+            <Goal />
+            {/* </GoalContainer> */}
             <BottomContainer>
                 <EditGoal />
                 <AddGoal />
