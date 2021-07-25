@@ -10,7 +10,15 @@ const Goal: React.FC = () => {
 
     return (
         <Container>
-            <Text style={{ marginLeft: '4%' }}>Goal Title</Text>
+            <Text
+                style={{
+                    color: '#232023',
+                    fontSize: 22,
+                    fontWeight: '600',
+                }}
+            >
+                Goal Title
+            </Text>
             <View>
                 <View
                     style={{
@@ -18,9 +26,13 @@ const Goal: React.FC = () => {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <Text style={{ marginLeft: 32 }}>May </Text>
-                    <Text>Jun </Text>
-                    <Text style={{ marginRight: 32 }}>Jul</Text>
+                    <Text style={{ marginLeft: 32, color: '#232023' }}>
+                        May{' '}
+                    </Text>
+                    <Text style={{ color: '#232023' }}>Jun </Text>
+                    <Text style={{ marginRight: 32, color: '#232023' }}>
+                        Jul
+                    </Text>
                 </View>
                 <ScrollView
                     horizontal={true}
@@ -28,12 +40,11 @@ const Goal: React.FC = () => {
                         borderColor: 'black',
                         borderWidth: 2,
                         padding: 4,
-                        maxHeight: '85%',
-                        // height: '30%',
                     }}
                 >
                     <View
                         style={{
+                            maxHeight: 340,
                             flexWrap: 'wrap',
                             paddingRight: 24,
                         }}

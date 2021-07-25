@@ -13,6 +13,6 @@ export const Day = styled.TouchableOpacity<DayProps>`
     ${(props) =>
         props.done &&
         css`
-            background: #0a2010;
+            background: #9be9a8;
         `}
 `;
