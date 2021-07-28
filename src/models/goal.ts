@@ -1,4 +1,5 @@
 export interface IGoal {
+    id: number;
     title: string;
     initialDate: Date;
     finalDate: Date;
