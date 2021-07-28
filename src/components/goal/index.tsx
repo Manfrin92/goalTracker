@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCallback } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import GoalDay from '../goalDay';
@@ -7,6 +8,10 @@ import { Container } from './styles';
 
 const Goal: React.FC = () => {
     const monthDays = new Array(293).fill(null);
+
+    const toggleDone = useCallback((id: number | string) => {
+        console.log('father, id: ', id);
+    }, []);
 
     return (
         <Container>
@@ -54,6 +59,10 @@ const Goal: React.FC = () => {
                                 <GoalDay
                                     key={Math.random()}
                                     done={index % 2 !== 0 && true}
+                                    toggleDone={(id: number | string) =>
+                                        toggleDone(id)
+                                    }
+                                    id={index}
                                 />
                             </>
                         ))}

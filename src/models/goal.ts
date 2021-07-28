@@ -4,3 +4,13 @@ export interface IGoal {
     finalDate: Date;
     months: string[];
 }
+
+export interface IGoalDay {
+    date: Date;
+    done: boolean;
+}
+export interface IGoalTracker {
+    title: string;
+    months: string[];
+    goalDays: IGoalDay[];
+}
