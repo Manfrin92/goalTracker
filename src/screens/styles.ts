@@ -10,8 +10,10 @@ export const GoalContainer = styled.View`
 
 export const BottomContainer = styled.View`
     flex-direction: row;
+    bottom: 24px;
     position: absolute;
     justify-content: space-between;
-    width: 90%;
-    margin-top: 135%;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
 `;
