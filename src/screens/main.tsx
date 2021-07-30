@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import AddGoal from '../components/addGoal';
+import AddGoalModal from '../components/addGoalModal';
 import EditGoal from '../components/editGoal';
 import Goal from '../components/goal';
 import Header from '../components/header';
@@ -31,6 +32,7 @@ const Main: React.FC = () => {
                 <EditGoal />
                 <AddGoal />
             </BottomContainer>
+            <AddGoalModal />
         </SafeAreaView>
     );
 };
