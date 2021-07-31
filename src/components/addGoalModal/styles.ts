@@ -27,8 +27,14 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text`
-    font-size: 17px;
+    font-size: 18px;
     color: #000;
     padding-left: 14px;
     padding-top: 18px;
+`;
+
+export const Label = styled.Text`
+    font-size: 16px;
+    color: #000;
+    margin: 12px 0 6px 6%;
 `;

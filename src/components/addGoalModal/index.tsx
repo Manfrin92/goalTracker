@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal, TouchableWithoutFeedback, SafeAreaView } from 'react-native';
 import DateSelector from '../dateSelector';
+import Input from '../Input';
 
-import { Container, Background, Content, Header, Title } from './styles';
+import { Container, Background, Content, Header, Title, Label } from './styles';
 
 const AddGoalModal: React.FC = () => {
     return (
@@ -16,6 +17,8 @@ const AddGoalModal: React.FC = () => {
                         <Header>
                             <Title>Add New Goal</Title>
                         </Header>
+                        <Label>Goal Title</Label>
+                        <Input />
                         <DateSelector />
                     </Content>
                     <TouchableWithoutFeedback onPress={() => {}}>
