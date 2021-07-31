@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useState } from 'react';
 import { SafeAreaView } from 'react-native';
@@ -10,7 +11,7 @@ import Header from '../components/header';
 import { BottomContainer, GoalContainer } from './styles';
 
 const Main: React.FC = () => {
-    const [showAddGoalModal, setShowAddGoalModal] = useState(true);
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView
@@ -31,13 +32,10 @@ const Main: React.FC = () => {
             </ScrollView>
             <BottomContainer>
                 <EditGoal />
-                <AddGoal showAddGoalModal={() => setShowAddGoalModal(true)} />
+                <AddGoal
+                    showAddGoalModal={() => navigation.navigate('AddGoal')}
+                />
             </BottomContainer>
-            <AddGoalModal
-                saveGoal={() => console.log('saveGoal')}
-                closeModal={() => setShowAddGoalModal(false)}
-                showModal={showAddGoalModal}
-            />
         </SafeAreaView>
     );
 };
