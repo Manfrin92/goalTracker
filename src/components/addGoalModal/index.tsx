@@ -1,5 +1,11 @@
 import React from 'react';
-import { Modal, TouchableWithoutFeedback, SafeAreaView } from 'react-native';
+import {
+    Modal,
+    TouchableWithoutFeedback,
+    SafeAreaView,
+    View,
+} from 'react-native';
+import Button from '../Button';
 import DateSelector from '../dateSelector';
 import Input from '../Input';
 
@@ -20,6 +26,24 @@ const AddGoalModal: React.FC = () => {
                         <Label>Goal Title</Label>
                         <Input />
                         <DateSelector />
+                        <View
+                            style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                marginLeft: '6%',
+                                marginRight: '4%',
+                                marginTop: 8,
+                            }}
+                        >
+                            <Button
+                                onPress={() => console.log('cancel')}
+                                text='Cancel'
+                            />
+                            <Button
+                                onPress={() => console.log('save')}
+                                text='Save'
+                            />
+                        </View>
                     </Content>
                     <TouchableWithoutFeedback onPress={() => {}}>
                         <Background />
