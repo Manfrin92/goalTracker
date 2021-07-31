@@ -3,9 +3,13 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { Container } from './styles';
 
-const AddGoal: React.FC = () => {
+interface AddGoalProps {
+    showAddGoalModal(): void;
+}
+
+const AddGoal: React.FC<AddGoalProps> = ({ showAddGoalModal }) => {
     return (
-        <Container>
+        <Container onPress={showAddGoalModal}>
             <Ionicons name='add' size={42} color='white' />
         </Container>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import AddGoal from '../components/addGoal';
@@ -9,6 +10,8 @@ import Header from '../components/header';
 import { BottomContainer, GoalContainer } from './styles';
 
 const Main: React.FC = () => {
+    const [showAddGoalModal, setShowAddGoalModal] = useState(true);
+
     return (
         <SafeAreaView
             style={{
@@ -20,19 +23,21 @@ const Main: React.FC = () => {
         >
             <ScrollView>
                 <Header />
-                {/* <GoalContainer> */}
                 <Goal />
                 <Goal />
                 <Goal />
                 <Goal />
                 <Goal />
-                {/* </GoalContainer> */}
             </ScrollView>
             <BottomContainer>
                 <EditGoal />
-                <AddGoal />
+                <AddGoal showAddGoalModal={() => setShowAddGoalModal(true)} />
             </BottomContainer>
-            <AddGoalModal />
+            <AddGoalModal
+                saveGoal={() => console.log('saveGoal')}
+                closeModal={() => setShowAddGoalModal(false)}
+                showModal={showAddGoalModal}
+            />
         </SafeAreaView>
     );
 };

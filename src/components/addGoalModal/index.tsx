@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCallback } from 'react';
 import {
     Modal,
     TouchableWithoutFeedback,
@@ -11,9 +12,23 @@ import Input from '../Input';
 
 import { Container, Background, Content, Header, Title, Label } from './styles';
 
-const AddGoalModal: React.FC = () => {
+interface AddGoalModalProps {
+    showModal: boolean;
+    closeModal(): void;
+    saveGoal(): void;
+}
+
+const AddGoalModal: React.FC<AddGoalModalProps> = ({
+    showModal,
+    closeModal,
+    saveGoal,
+}) => {
+    const handleSaveGoal = useCallback(() => {
+        saveGoal();
+    }, []);
+
     return (
-        <Modal transparent visible={true} animationType='fade'>
+        <Modal transparent visible={showModal} animationType='fade'>
             <SafeAreaView style={{ flex: 1 }}>
                 <Container>
                     <TouchableWithoutFeedback onPress={() => {}}>
@@ -35,14 +50,8 @@ const AddGoalModal: React.FC = () => {
                                 marginTop: 8,
                             }}
                         >
-                            <Button
-                                onPress={() => console.log('cancel')}
-                                text='Cancel'
-                            />
-                            <Button
-                                onPress={() => console.log('save')}
-                                text='Save'
-                            />
+                            <Button onPress={closeModal} text='Cancel' />
+                            <Button onPress={handleSaveGoal} text='Save' />
                         </View>
                     </Content>
                     <TouchableWithoutFeedback onPress={() => {}}>
