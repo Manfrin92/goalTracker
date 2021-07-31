@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, TouchableWithoutFeedback, SafeAreaView } from 'react-native';
+import DateSelector from '../dateSelector';
 
 import { Container, Background, Content, Header, Title } from './styles';
 
@@ -15,6 +16,7 @@ const AddGoalModal: React.FC = () => {
                         <Header>
                             <Title>Add New Goal</Title>
                         </Header>
+                        <DateSelector />
                     </Content>
                     <TouchableWithoutFeedback onPress={() => {}}>
                         <Background />
