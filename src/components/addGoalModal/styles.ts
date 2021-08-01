@@ -6,12 +6,7 @@ export const Container = styled.View`
     margin-top: 24px;
 `;
 
-export const Background = styled.View`
-    flex: 0.1;
-`;
-
 export const Content = styled.View`
-    /* flex: 0.9; */
     flex: 1;
     background-color: white;
 `;

@@ -1,22 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { useCallback } from 'react';
-import {
-    TouchableWithoutFeedback,
-    SafeAreaView,
-    View,
-    Keyboard,
-    KeyboardAvoidingView,
-    Alert,
-} from 'react-native';
+import { View, KeyboardAvoidingView, Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { IGoal } from '../../models/goal';
 import Button from '../Button';
 import DateSelector from '../dateSelector';
 import Input from '../Input';
 
-import { Container, Background, Content, Header, Title, Label } from './styles';
+import { Container, Content, Header, Title, Label } from './styles';
 
 const AddGoalModal: React.FC = () => {
     const navigation = useNavigation();
