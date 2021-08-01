@@ -25,10 +25,6 @@ const Main: React.FC = () => {
             <ScrollView>
                 <Header />
                 <Goal />
-                <Goal />
-                <Goal />
-                <Goal />
-                <Goal />
             </ScrollView>
             <BottomContainer>
                 <EditGoal />
