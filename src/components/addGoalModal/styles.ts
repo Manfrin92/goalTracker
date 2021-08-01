@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
     flex: 1;
     background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 24px;
 `;
 
 export const Background = styled.View`
@@ -10,9 +11,9 @@ export const Background = styled.View`
 `;
 
 export const Content = styled.View`
-    flex: 0.8;
+    /* flex: 0.9; */
+    flex: 1;
     background-color: white;
-    border-radius: 5px;
 `;
 
 export const Header = styled.View`

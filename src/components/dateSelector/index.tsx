@@ -5,7 +5,15 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 import { Container, Text, SelectorContainer } from './styles';
 
-const DateSelector: React.FC = () => {
+interface DateSelectorProps {
+    setFirstDate(date: Date | undefined): void;
+    setSecondDate(date: Date | undefined): void;
+}
+
+const DateSelector: React.FC<DateSelectorProps> = ({
+    setFirstDate,
+    setSecondDate,
+}) => {
     const [showFirstDate, setShowFirstDate] = useState(false);
     const [showFinalDate, setShowFinalDate] = useState(false);
     const [initialDate, setInitialDate] = useState(new Date());
@@ -17,7 +25,6 @@ const DateSelector: React.FC = () => {
                 <TouchableOpacity
                     onPress={() => {
                         setShowFirstDate(true);
-                        console.log('showFirstDate: ', showFirstDate);
                     }}
                 >
                     <Text>First date</Text>
@@ -36,8 +43,18 @@ const DateSelector: React.FC = () => {
                             is24Hour
                             display='calendar'
                             onChange={(event, date) => {
-                                if (date) setInitialDate(date);
-                                setShowFirstDate(false);
+                                if (date) {
+                                    if (date > finalDate) {
+                                        Alert.alert(
+                                            'Error',
+                                            'Initial date should not be superior than final date'
+                                        );
+                                    } else {
+                                        setInitialDate(date);
+                                        setFirstDate(date);
+                                    }
+                                    setShowFirstDate(false);
+                                }
                             }}
                         />
                     </View>
@@ -60,8 +77,18 @@ const DateSelector: React.FC = () => {
                             is24Hour
                             display='calendar'
                             onChange={(event, date) => {
-                                if (date) setFinalDate(date);
-                                setShowFinalDate(false);
+                                if (date) {
+                                    if (finalDate < initialDate) {
+                                        Alert.alert(
+                                            'Error',
+                                            'Final date should not be inferior than initial date'
+                                        );
+                                    } else {
+                                        setFinalDate(date);
+                                        setSecondDate(date);
+                                    }
+                                    setShowFinalDate(false);
+                                }
                             }}
                         />
                     </View>
