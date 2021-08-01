@@ -2,13 +2,17 @@ import React from 'react';
 
 import { Container, TextInput } from './styles';
 
-const Input: React.FC = () => {
+interface InputProps {
+    setValue(value: string): void;
+}
+
+const Input: React.FC<InputProps> = ({ setValue }) => {
     return (
         <Container>
             <TextInput
                 placeholderTextColor='grey'
                 onChangeText={(value) => {
-                    console.log('value input: ', value);
+                    setValue(value);
                 }}
             />
         </Container>
