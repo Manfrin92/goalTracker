@@ -3,11 +3,18 @@ import { useCallback } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import GoalDay from '../goalDay';
+import { Feather } from '@expo/vector-icons';
 
 import { Container } from './styles';
+import { useState } from 'react';
 
-const Goal: React.FC = () => {
+interface GoalProps {
+    deleteGoal(): void;
+}
+
+const Goal: React.FC<GoalProps> = ({ deleteGoal }) => {
     const monthDays = new Array(293).fill(null);
+    const [shouldShowDeleteIcon, setShouldShowDeleteIcon] = useState(false);
 
     const toggleDone = useCallback((id: number | string) => {
         console.log('father, id: ', id);
@@ -15,15 +22,31 @@ const Goal: React.FC = () => {
 
     return (
         <Container>
-            <Text
-                style={{
-                    color: '#232023',
-                    fontSize: 22,
-                    fontWeight: '600',
-                }}
-            >
-                Goal Title
-            </Text>
+            <View style={{ flexDirection: 'row' }}>
+                <Text
+                    onLongPress={() =>
+                        setShouldShowDeleteIcon(!shouldShowDeleteIcon)
+                    }
+                    style={{
+                        color: '#232023',
+                        fontSize: 22,
+                        fontWeight: '600',
+                    }}
+                >
+                    Goal Title
+                </Text>
+
+                {shouldShowDeleteIcon && (
+                    <TouchableOpacity onPress={deleteGoal}>
+                        <Feather
+                            style={{ marginLeft: 12, marginTop: 3 }}
+                            name='trash-2'
+                            size={22}
+                            color='black'
+                        />
+                    </TouchableOpacity>
+                )}
+            </View>
             <View>
                 <View
                     style={{

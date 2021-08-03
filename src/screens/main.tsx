@@ -24,10 +24,10 @@ const Main: React.FC = () => {
         >
             <ScrollView>
                 <Header />
-                <Goal />
+                <Goal deleteGoal={() => {}} />
             </ScrollView>
             <BottomContainer>
-                <EditGoal />
+                {/* <EditGoal /> */}
                 <AddGoal
                     showAddGoalModal={() => navigation.navigate('AddGoal')}
                 />
