@@ -5,6 +5,7 @@ import { useCallback } from 'react';
 import { View, KeyboardAvoidingView, Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { IGoal } from '../../models/goal';
+import { storeGoal } from '../../services/asyncStorage';
 import Button from '../Button';
 import DateSelector from '../dateSelector';
 import Input from '../Input';
@@ -19,7 +20,7 @@ const AddGoalModal: React.FC = () => {
     );
     const [finalDate, setFinalDate] = useState<Date | undefined>(new Date());
 
-    const handleSaveGoal = useCallback(() => {
+    const handleSaveGoal = useCallback(async () => {
         if (!initialDate || !finalDate) {
             Alert.alert('Error', 'Must select dates');
         } else {
@@ -36,10 +37,14 @@ const AddGoalModal: React.FC = () => {
             title: goalTitle,
             initialDate: initialDate ?? new Date(),
             finalDate: finalDate ?? new Date(),
-            months: ['jan'],
+            months: ['jan', 'fev', 'mar'],
         };
 
         console.log('adding goal with: ', newGoal);
+
+        await storeGoal(newGoal);
+
+        navigation.navigate('Goals');
     }, [goalTitle, initialDate, finalDate]);
 
     return (

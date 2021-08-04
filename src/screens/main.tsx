@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import React, { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView } from 'react-native';
@@ -26,6 +26,25 @@ const Main: React.FC = () => {
         getStGoals();
     }, []);
 
+    useFocusEffect(
+        useCallback(() => {
+            let mounted = true;
+            getStoredGoals().then((storedGoals) => {
+                if (storedGoals) {
+                    if (mounted) {
+                        setStoredGoals(storedGoals);
+                    }
+                }
+            });
+
+            return () => {
+                mounted = false;
+            };
+
+            // This array is special for re-executing this function
+        }, [])
+    );
+
     return (
         <SafeAreaView
             style={{
@@ -41,6 +60,8 @@ const Main: React.FC = () => {
                     storedGoals.length > 0 &&
                     storedGoals.map((storedGoal) => (
                         <Goal
+                            goal={storedGoal}
+                            key={storedGoal.id}
                             deleteGoal={() => deleteStoredGoal(storedGoal.id)}
                         />
                     ))}

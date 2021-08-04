@@ -7,12 +7,14 @@ import { Feather } from '@expo/vector-icons';
 
 import { Container } from './styles';
 import { useState } from 'react';
+import { IGoal } from '../../models/goal';
 
 interface GoalProps {
+    goal: IGoal;
     deleteGoal(): void;
 }
 
-const Goal: React.FC<GoalProps> = ({ deleteGoal }) => {
+const Goal: React.FC<GoalProps> = ({ goal, deleteGoal }) => {
     const monthDays = new Array(293).fill(null);
     const [shouldShowDeleteIcon, setShouldShowDeleteIcon] = useState(false);
 
@@ -33,7 +35,7 @@ const Goal: React.FC<GoalProps> = ({ deleteGoal }) => {
                         fontWeight: '600',
                     }}
                 >
-                    Goal Title
+                    {goal.title}
                 </Text>
 
                 {shouldShowDeleteIcon && (
