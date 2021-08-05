@@ -2,7 +2,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { Alert, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import AddGoal from '../components/addGoal';
 // import EditGoal from '../components/editGoal';
@@ -61,7 +61,32 @@ const Main: React.FC = () => {
                         <Goal
                             goal={storedGoal}
                             key={storedGoal.id}
-                            deleteGoal={() => deleteStoredGoal(storedGoal.id)}
+                            deleteGoal={() => {
+                                Alert.alert(
+                                    'Delete goal',
+                                    `Are you sure that you want to delete the goal?`,
+                                    [
+                                        {
+                                            text: 'No',
+                                            style: 'cancel',
+                                        },
+                                        {
+                                            text: 'Yes',
+                                            onPress: async () => {
+                                                const filteredGoals =
+                                                    await deleteStoredGoal(
+                                                        storedGoal.id
+                                                    );
+                                                if (filteredGoals) {
+                                                    setStoredGoals(
+                                                        filteredGoals
+                                                    );
+                                                }
+                                            },
+                                        },
+                                    ]
+                                );
+                            }}
                         />
                     ))}
             </ScrollView>
