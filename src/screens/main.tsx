@@ -20,7 +20,6 @@ const Main: React.FC = () => {
         async function getStGoals() {
             const stGoals = await getStoredGoals();
             if (stGoals) setStoredGoals(stGoals);
-            console.log('stored goals: ', stGoals);
         }
 
         getStGoals();

@@ -33,16 +33,31 @@ export async function getStoredGoal(id: number) {
 
 export async function deleteStoredGoal(id: number) {
     try {
-        const storedGoalsRaw = await getStoredGoals();
-        if (storedGoalsRaw) {
-            const filteredGoals = storedGoalsRaw.filter(
-                (storedGoal) => storedGoal.id !== id
-            );
-            await storeGoals(filteredGoals);
-            return filteredGoals;
-        } else {
-            Alert.alert('Error', 'Goal not found');
-        }
+        Alert.alert(
+            'Delete goal',
+            `Are you sure that you want to delete the goal?`,
+            [
+                {
+                    text: 'No',
+                    style: 'cancel',
+                },
+                {
+                    text: 'Yes',
+                    onPress: async () => {
+                        const storedGoalsRaw = await getStoredGoals();
+                        if (storedGoalsRaw) {
+                            const filteredGoals = storedGoalsRaw.filter(
+                                (storedGoal) => storedGoal.id !== id
+                            );
+                            await storeGoals(filteredGoals);
+                            return filteredGoals;
+                        } else {
+                            Alert.alert('Error', 'Goal not found');
+                        }
+                    },
+                },
+            ]
+        );
     } catch (e) {
         Alert.alert('Error while saving goal');
     }
