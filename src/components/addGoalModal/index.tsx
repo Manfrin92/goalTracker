@@ -6,6 +6,7 @@ import { View, KeyboardAvoidingView, Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { IGoal } from '../../models/goal';
 import { storeGoal } from '../../services/asyncStorage';
+import { getMonthNamesArray } from '../../services/dateHandler';
 import Button from '../Button';
 import DateSelector from '../dateSelector';
 import Input from '../Input';
@@ -40,11 +41,14 @@ const AddGoalModal: React.FC = () => {
             months: ['jan', 'fev', 'mar'],
         };
 
-        console.log('adding goal with: ', newGoal);
+        // console.log('adding goal with: ', newGoal);
 
-        await storeGoal(newGoal);
+        // @ts-ignore
+        getMonthNamesArray(initialDate, finalDate);
 
-        navigation.navigate('Goals');
+        // await storeGoal(newGoal);
+
+        // navigation.navigate('Goals');
     }, [goalTitle, initialDate, finalDate]);
 
     return (
